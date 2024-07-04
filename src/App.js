@@ -1,21 +1,20 @@
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import Home from "./components/Home";
+import NoPage from "./components/NoPage";
+import Airports from "./components/Airports";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-screen ">
+      <Router>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route exact path="/airports" element={<Airports />} />
+          <Route path="*" element={<NoPage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
